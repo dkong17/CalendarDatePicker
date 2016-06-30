@@ -141,6 +141,7 @@ public class CalendarDatePickerViewController : UIViewController, UICollectionVi
             if (currentDate > nextMonthFirstDay) {
                 cell.isCellSelectable = false
                 cell.dayLabel.textColor = UIColor.clearColor()
+                return cell
             }
             // Disable days before TODAY
             if NSCalendar.currentCalendar().startOfDayForDate(cell.currentDate) < NSCalendar.currentCalendar().startOfDayForDate(NSDate()) {
