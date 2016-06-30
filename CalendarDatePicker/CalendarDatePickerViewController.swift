@@ -28,8 +28,8 @@ public class CalendarDatePickerViewController : UIViewController, UICollectionVi
     public var selectedDate : NSDate?
     private var selectedIndex : NSIndexPath?
     
-    private var minDateTime : NSDate
-    public var calendarStartDate : NSDate = NSDate()
+    private var minDateTime : NSDate // Limit for the minimum selectable date and time
+    public var calendarStartDate : NSDate = NSDate() // Start of the calendar (first day of month @0:00 UTC)
     
     private var cellDimension : CGFloat?
     
@@ -83,10 +83,8 @@ public class CalendarDatePickerViewController : UIViewController, UICollectionVi
     
     required public init?(coder aDecoder: NSCoder) {
         let seconds = ceil(NSDate.timeIntervalSinceReferenceDate()/300.0) * 300.0
-        selectedDate = NSDate.init(timeIntervalSinceReferenceDate: seconds)
-        let components = NSCalendar.currentCalendar().components([.Calendar, .Era, .Year, .Month, .Day, .Hour], fromDate: NSDate())
-        components.hour += 1
-        self.minDateTime = NSCalendar.currentCalendar().dateFromComponents(components)!
+        self.minDateTime = NSDate.init(timeIntervalSinceReferenceDate: seconds)
+        self.selectedDate = minDateTime
         super.init(coder: aDecoder)
     }
     
