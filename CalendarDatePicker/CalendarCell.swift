@@ -17,10 +17,16 @@ class CalendarCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.dayLabel.adjustsFontSizeToFitWidth = true
-        self.selectedBackgroundView = UIView.init(frame: self.bounds)
+    }
+    
+    override func layoutSubviews() {
+        self.contentView.frame = self.bounds
+        self.selectedBackgroundView = UIView()
+        self.selectedBackgroundView!.frame = CGRectInset(self.bounds, 5, 5)
         self.selectedBackgroundView!.layer.backgroundColor = self.tintColor.CGColor
         self.selectedBackgroundView!.layer.masksToBounds = true
+        self.selectedBackgroundView!.layer.cornerRadius = self.selectedBackgroundView!.frame.width/2.0
+        super.layoutSubviews()
     }
     
     func selectedForLabelColor() {

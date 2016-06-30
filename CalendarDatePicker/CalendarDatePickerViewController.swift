@@ -51,7 +51,7 @@ public class CalendarDatePickerViewController : UIViewController, UICollectionVi
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([.Year, .Month, .Hour], fromDate: self.calendarStartDate)
         self.calendarStartDate = NSDate(year: components.year, month: components.month, day: 1)
-        self.calendarView = UICollectionView.init(frame: CGRect.init(x: 10, y: 40, width: screen.bounds.width-20, height: self.view.frame.height - 84 - self.datePicker!.frame.height), collectionViewLayout: layout)
+        self.calendarView = UICollectionView.init(frame: CGRect.init(x: 20, y: 40, width: screen.bounds.width-40, height: self.view.frame.height - 84 - self.datePicker!.frame.height), collectionViewLayout: layout)
         self.calendarView!.backgroundColor = UIColor.clearColor()
         self.calendarView!.showsHorizontalScrollIndicator = false
         self.calendarView!.showsVerticalScrollIndicator = false
@@ -123,11 +123,11 @@ public class CalendarDatePickerViewController : UIViewController, UICollectionVi
     // Setting up cells
     public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CalendarCell
         let firstDayOfThisMonth = calendarStartDate.dateByAddingMonths(indexPath.section)
         let prefixDays = ( firstDayOfThisMonth.weekday() - NSCalendar.currentCalendar().firstWeekday)
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CalendarCell
         cell.dayLabel.textColor = UIColor.blackColor()
-        cell.selectedBackgroundView!.layer.cornerRadius = cellDimension!/2.0
         
         if indexPath.row >= prefixDays {
             cell.isCellSelectable = true
@@ -155,6 +155,7 @@ public class CalendarDatePickerViewController : UIViewController, UICollectionVi
             // Set the selected date background view
             if cell.currentDate.isDateSameDay(selectedDate!) {
                 cell.selectedForLabelColor()
+                cell.selected = true
             }
         }
             // Hide prefix

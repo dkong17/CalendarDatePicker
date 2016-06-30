@@ -13,8 +13,8 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gxj-9r-mxq" userLabel="dayLabel">
-                        <rect key="frame" x="5" y="5" width="40" height="40"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Gxj-9r-mxq" userLabel="dayLabel">
+                        <rect key="frame" x="10" y="10" width="30" height="30"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                         <nil key="highlightedColor"/>
@@ -24,12 +24,12 @@
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Gxj-9r-mxq" secondAttribute="bottom" constant="5" id="ImV-Ye-OY6"/>
+                <constraint firstAttribute="bottom" secondItem="Gxj-9r-mxq" secondAttribute="bottom" constant="10" id="ImV-Ye-OY6"/>
                 <constraint firstItem="Gxj-9r-mxq" firstAttribute="centerX" secondItem="6Ih-YC-hd8" secondAttribute="centerX" id="QZi-Wd-fwj"/>
                 <constraint firstItem="Gxj-9r-mxq" firstAttribute="centerY" secondItem="6Ih-YC-hd8" secondAttribute="centerY" id="Ts4-8d-V7G"/>
-                <constraint firstItem="Gxj-9r-mxq" firstAttribute="top" secondItem="6Ih-YC-hd8" secondAttribute="top" constant="5" id="eLg-UK-8ao"/>
-                <constraint firstAttribute="trailing" secondItem="Gxj-9r-mxq" secondAttribute="trailing" constant="5" id="hjQ-tU-3h6"/>
-                <constraint firstItem="Gxj-9r-mxq" firstAttribute="leading" secondItem="6Ih-YC-hd8" secondAttribute="leading" constant="5" id="zhH-XR-mPR"/>
+                <constraint firstItem="Gxj-9r-mxq" firstAttribute="top" secondItem="6Ih-YC-hd8" secondAttribute="top" constant="10" id="eLg-UK-8ao"/>
+                <constraint firstAttribute="trailing" secondItem="Gxj-9r-mxq" secondAttribute="trailing" constant="10" id="hjQ-tU-3h6"/>
+                <constraint firstItem="Gxj-9r-mxq" firstAttribute="leading" secondItem="6Ih-YC-hd8" secondAttribute="leading" constant="10" id="zhH-XR-mPR"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
@@ -40,7 +40,7 @@
             <connections>
                 <outlet property="dayLabel" destination="Gxj-9r-mxq" id="K2S-oh-Guu"/>
             </connections>
-            <point key="canvasLocation" x="87" y="251"/>
+            <point key="canvasLocation" x="65" y="150"/>
         </collectionViewCell>
     </objects>
 </document>
