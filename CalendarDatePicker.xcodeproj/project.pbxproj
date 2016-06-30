@@ -1,0 +1,541 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		425F06B51D14C77E004B5C3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425F06B41D14C77E004B5C3B /* AppDelegate.swift */; };
+		425F06BA1D14C77E004B5C3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 425F06B81D14C77E004B5C3B /* Main.storyboard */; };
+		425F06BC1D14C77E004B5C3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 425F06BB1D14C77E004B5C3B /* Assets.xcassets */; };
+		425F06BF1D14C77E004B5C3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 425F06BD1D14C77E004B5C3B /* LaunchScreen.storyboard */; };
+		425F06CA1D14C77E004B5C3B /* CalendarDatePickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425F06C91D14C77E004B5C3B /* CalendarDatePickerTests.swift */; };
+		425F06D51D14C77E004B5C3B /* CalendarDatePickerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425F06D41D14C77E004B5C3B /* CalendarDatePickerUITests.swift */; };
+		425F06E31D14CDD1004B5C3B /* CalendarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425F06E21D14CDD1004B5C3B /* CalendarCell.xib */; };
+		425F06E51D14CE0C004B5C3B /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425F06E41D14CE0C004B5C3B /* CalendarCell.swift */; };
+		425F06E71D14CFC9004B5C3B /* CalendarHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425F06E61D14CFC9004B5C3B /* CalendarHeader.xib */; };
+		425F06EA1D14D0B6004B5C3B /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425F06E91D14D0B6004B5C3B /* DateExtensions.swift */; };
+		425F06EC1D14D654004B5C3B /* CalendarDatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425F06EB1D14D654004B5C3B /* CalendarDatePickerViewController.swift */; };
+		42A35D611D1B557900290D16 /* CalendarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A35D601D1B557900290D16 /* CalendarHeader.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		425F06C61D14C77E004B5C3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 425F06A91D14C77E004B5C3B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 425F06B01D14C77E004B5C3B;
+			remoteInfo = CalendarDatePicker;
+		};
+		425F06D11D14C77E004B5C3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 425F06A91D14C77E004B5C3B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 425F06B01D14C77E004B5C3B;
+			remoteInfo = CalendarDatePicker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		425F06B11D14C77E004B5C3B /* CalendarDatePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarDatePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		425F06B41D14C77E004B5C3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		425F06B91D14C77E004B5C3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		425F06BB1D14C77E004B5C3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		425F06BE1D14C77E004B5C3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		425F06C01D14C77E004B5C3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		425F06C51D14C77E004B5C3B /* CalendarDatePickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalendarDatePickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		425F06C91D14C77E004B5C3B /* CalendarDatePickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDatePickerTests.swift; sourceTree = "<group>"; };
+		425F06CB1D14C77E004B5C3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		425F06D01D14C77E004B5C3B /* CalendarDatePickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalendarDatePickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		425F06D41D14C77E004B5C3B /* CalendarDatePickerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDatePickerUITests.swift; sourceTree = "<group>"; };
+		425F06D61D14C77E004B5C3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		425F06E21D14CDD1004B5C3B /* CalendarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarCell.xib; sourceTree = "<group>"; };
+		425F06E41D14CE0C004B5C3B /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		425F06E61D14CFC9004B5C3B /* CalendarHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarHeader.xib; sourceTree = "<group>"; };
+		425F06E91D14D0B6004B5C3B /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		425F06EB1D14D654004B5C3B /* CalendarDatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDatePickerViewController.swift; sourceTree = "<group>"; };
+		42A35D601D1B557900290D16 /* CalendarHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeader.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		425F06AE1D14C77E004B5C3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		425F06C21D14C77E004B5C3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		425F06CD1D14C77E004B5C3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		425F06A81D14C77E004B5C3B = {
+			isa = PBXGroup;
+			children = (
+				425F06B31D14C77E004B5C3B /* CalendarDatePicker */,
+				425F06C81D14C77E004B5C3B /* CalendarDatePickerTests */,
+				425F06D31D14C77E004B5C3B /* CalendarDatePickerUITests */,
+				425F06B21D14C77E004B5C3B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		425F06B21D14C77E004B5C3B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				425F06B11D14C77E004B5C3B /* CalendarDatePicker.app */,
+				425F06C51D14C77E004B5C3B /* CalendarDatePickerTests.xctest */,
+				425F06D01D14C77E004B5C3B /* CalendarDatePickerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		425F06B31D14C77E004B5C3B /* CalendarDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				425F06E81D14CFD7004B5C3B /* Calendar */,
+				425F06B41D14C77E004B5C3B /* AppDelegate.swift */,
+				425F06B81D14C77E004B5C3B /* Main.storyboard */,
+				425F06BB1D14C77E004B5C3B /* Assets.xcassets */,
+				425F06BD1D14C77E004B5C3B /* LaunchScreen.storyboard */,
+				425F06C01D14C77E004B5C3B /* Info.plist */,
+			);
+			path = CalendarDatePicker;
+			sourceTree = "<group>";
+		};
+		425F06C81D14C77E004B5C3B /* CalendarDatePickerTests */ = {
+			isa = PBXGroup;
+			children = (
+				425F06C91D14C77E004B5C3B /* CalendarDatePickerTests.swift */,
+				425F06CB1D14C77E004B5C3B /* Info.plist */,
+			);
+			path = CalendarDatePickerTests;
+			sourceTree = "<group>";
+		};
+		425F06D31D14C77E004B5C3B /* CalendarDatePickerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				425F06D41D14C77E004B5C3B /* CalendarDatePickerUITests.swift */,
+				425F06D61D14C77E004B5C3B /* Info.plist */,
+			);
+			path = CalendarDatePickerUITests;
+			sourceTree = "<group>";
+		};
+		425F06E81D14CFD7004B5C3B /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				42A35D601D1B557900290D16 /* CalendarHeader.swift */,
+				425F06E91D14D0B6004B5C3B /* DateExtensions.swift */,
+				425F06E61D14CFC9004B5C3B /* CalendarHeader.xib */,
+				425F06E41D14CE0C004B5C3B /* CalendarCell.swift */,
+				425F06E21D14CDD1004B5C3B /* CalendarCell.xib */,
+				425F06EB1D14D654004B5C3B /* CalendarDatePickerViewController.swift */,
+			);
+			name = Calendar;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		425F06B01D14C77E004B5C3B /* CalendarDatePicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 425F06D91D14C77F004B5C3B /* Build configuration list for PBXNativeTarget "CalendarDatePicker" */;
+			buildPhases = (
+				425F06AD1D14C77E004B5C3B /* Sources */,
+				425F06AE1D14C77E004B5C3B /* Frameworks */,
+				425F06AF1D14C77E004B5C3B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CalendarDatePicker;
+			productName = CalendarDatePicker;
+			productReference = 425F06B11D14C77E004B5C3B /* CalendarDatePicker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		425F06C41D14C77E004B5C3B /* CalendarDatePickerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 425F06DC1D14C77F004B5C3B /* Build configuration list for PBXNativeTarget "CalendarDatePickerTests" */;
+			buildPhases = (
+				425F06C11D14C77E004B5C3B /* Sources */,
+				425F06C21D14C77E004B5C3B /* Frameworks */,
+				425F06C31D14C77E004B5C3B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				425F06C71D14C77E004B5C3B /* PBXTargetDependency */,
+			);
+			name = CalendarDatePickerTests;
+			productName = CalendarDatePickerTests;
+			productReference = 425F06C51D14C77E004B5C3B /* CalendarDatePickerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		425F06CF1D14C77E004B5C3B /* CalendarDatePickerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 425F06DF1D14C77F004B5C3B /* Build configuration list for PBXNativeTarget "CalendarDatePickerUITests" */;
+			buildPhases = (
+				425F06CC1D14C77E004B5C3B /* Sources */,
+				425F06CD1D14C77E004B5C3B /* Frameworks */,
+				425F06CE1D14C77E004B5C3B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				425F06D21D14C77E004B5C3B /* PBXTargetDependency */,
+			);
+			name = CalendarDatePickerUITests;
+			productName = CalendarDatePickerUITests;
+			productReference = 425F06D01D14C77E004B5C3B /* CalendarDatePickerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		425F06A91D14C77E004B5C3B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "David Kong";
+				TargetAttributes = {
+					425F06B01D14C77E004B5C3B = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = US8W6JHFZD;
+					};
+					425F06C41D14C77E004B5C3B = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = US8W6JHFZD;
+						TestTargetID = 425F06B01D14C77E004B5C3B;
+					};
+					425F06CF1D14C77E004B5C3B = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = US8W6JHFZD;
+						TestTargetID = 425F06B01D14C77E004B5C3B;
+					};
+				};
+			};
+			buildConfigurationList = 425F06AC1D14C77E004B5C3B /* Build configuration list for PBXProject "CalendarDatePicker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 425F06A81D14C77E004B5C3B;
+			productRefGroup = 425F06B21D14C77E004B5C3B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				425F06B01D14C77E004B5C3B /* CalendarDatePicker */,
+				425F06C41D14C77E004B5C3B /* CalendarDatePickerTests */,
+				425F06CF1D14C77E004B5C3B /* CalendarDatePickerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		425F06AF1D14C77E004B5C3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				425F06BF1D14C77E004B5C3B /* LaunchScreen.storyboard in Resources */,
+				425F06BC1D14C77E004B5C3B /* Assets.xcassets in Resources */,
+				425F06BA1D14C77E004B5C3B /* Main.storyboard in Resources */,
+				425F06E71D14CFC9004B5C3B /* CalendarHeader.xib in Resources */,
+				425F06E31D14CDD1004B5C3B /* CalendarCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		425F06C31D14C77E004B5C3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		425F06CE1D14C77E004B5C3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		425F06AD1D14C77E004B5C3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				425F06EC1D14D654004B5C3B /* CalendarDatePickerViewController.swift in Sources */,
+				425F06E51D14CE0C004B5C3B /* CalendarCell.swift in Sources */,
+				425F06EA1D14D0B6004B5C3B /* DateExtensions.swift in Sources */,
+				425F06B51D14C77E004B5C3B /* AppDelegate.swift in Sources */,
+				42A35D611D1B557900290D16 /* CalendarHeader.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		425F06C11D14C77E004B5C3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				425F06CA1D14C77E004B5C3B /* CalendarDatePickerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		425F06CC1D14C77E004B5C3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				425F06D51D14C77E004B5C3B /* CalendarDatePickerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		425F06C71D14C77E004B5C3B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 425F06B01D14C77E004B5C3B /* CalendarDatePicker */;
+			targetProxy = 425F06C61D14C77E004B5C3B /* PBXContainerItemProxy */;
+		};
+		425F06D21D14C77E004B5C3B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 425F06B01D14C77E004B5C3B /* CalendarDatePicker */;
+			targetProxy = 425F06D11D14C77E004B5C3B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		425F06B81D14C77E004B5C3B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				425F06B91D14C77E004B5C3B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		425F06BD1D14C77E004B5C3B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				425F06BE1D14C77E004B5C3B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		425F06D71D14C77F004B5C3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		425F06D81D14C77F004B5C3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		425F06DA1D14C77F004B5C3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CalendarDatePicker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "David-Kong.CalendarDatePicker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		425F06DB1D14C77F004B5C3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CalendarDatePicker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "David-Kong.CalendarDatePicker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		425F06DD1D14C77F004B5C3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CalendarDatePickerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "David-Kong.CalendarDatePickerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CalendarDatePicker.app/CalendarDatePicker";
+			};
+			name = Debug;
+		};
+		425F06DE1D14C77F004B5C3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CalendarDatePickerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "David-Kong.CalendarDatePickerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CalendarDatePicker.app/CalendarDatePicker";
+			};
+			name = Release;
+		};
+		425F06E01D14C77F004B5C3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CalendarDatePickerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "David-Kong.CalendarDatePickerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CalendarDatePicker;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		425F06E11D14C77F004B5C3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CalendarDatePickerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "David-Kong.CalendarDatePickerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CalendarDatePicker;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		425F06AC1D14C77E004B5C3B /* Build configuration list for PBXProject "CalendarDatePicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				425F06D71D14C77F004B5C3B /* Debug */,
+				425F06D81D14C77F004B5C3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		425F06D91D14C77F004B5C3B /* Build configuration list for PBXNativeTarget "CalendarDatePicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				425F06DA1D14C77F004B5C3B /* Debug */,
+				425F06DB1D14C77F004B5C3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		425F06DC1D14C77F004B5C3B /* Build configuration list for PBXNativeTarget "CalendarDatePickerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				425F06DD1D14C77F004B5C3B /* Debug */,
+				425F06DE1D14C77F004B5C3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		425F06DF1D14C77F004B5C3B /* Build configuration list for PBXNativeTarget "CalendarDatePickerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				425F06E01D14C77F004B5C3B /* Debug */,
+				425F06E11D14C77F004B5C3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 425F06A91D14C77E004B5C3B /* Project object */;
+}
