@@ -12,15 +12,12 @@ private let reuseIdentifier = "Cell"
 private let numYears = 2 // Number of years the calendar should display
 
 @objc public protocol CalendarDatePickerDelegate {
-    optional    func calendarPicker(_: CalendarDatePickerViewController, didCancel error : NSError)
     optional    func calendarPicker(_: CalendarDatePickerViewController, didSelectDate date : NSDate)
-    optional    func calendarPicker(_: CalendarDatePickerViewController, didSelectMultipleDate dates : [NSDate])
 }
 
 public class CalendarDatePickerViewController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var datePicker: UIDatePicker!
     
-    //private let bcColor = UIColor.init(colorLiteralRed: 224.0/255.0, green: 224.0/255.0, blue: 224.0/255.0, alpha: 1.0)
     private let bcColor = UIColor.groupTableViewBackgroundColor()
     
     var dateDisplay : UILabel?
@@ -28,13 +25,13 @@ public class CalendarDatePickerViewController : UIViewController, UICollectionVi
     public var calendarDelegate : CalendarDatePickerDelegate?
     public var calendarView : UICollectionView?
     
-    public var selectedDate : NSDate
+    public var selectedDate : NSDate?
     private var selectedIndex : NSIndexPath?
     
     private var minDateTime : NSDate
     public var calendarStartDate : NSDate = NSDate()
     
-    private var cellDimension : CGFloat
+    private var cellDimension : CGFloat?
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -46,18 +43,15 @@ public class CalendarDatePickerViewController : UIViewController, UICollectionVi
         dateDisplay?.backgroundColor = UIColor.whiteColor()
         dateDisplay?.textAlignment = .Left
         dateDisplay?.textColor = self.view.tintColor
-        dateDisplay?.text = minDateTime.timeNameFull()
+        dateDisplay?.text = selectedDate!.timeNameFull()
         self.view.frame.height
+        
         // Calendar setup
+        let layout = UICollectionViewFlowLayout()
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([.Year, .Month, .Hour], fromDate: self.calendarStartDate)
         self.calendarStartDate = NSDate(year: components.year, month: components.month, day: 1)
-        
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
-        layout.headerReferenceSize = CGSizeMake(screen.bounds.width, cellDimension*2)
-        calendarView = UICollectionView.init(frame: CGRect.init(x: 0, y: 40, width: screen.bounds.width, height: self.view.frame.height - 84 - self.datePicker!.frame.height), collectionViewLayout: layout)
+        self.calendarView = UICollectionView.init(frame: CGRect.init(x: 10, y: 40, width: screen.bounds.width-20, height: self.view.frame.height - 84 - self.datePicker!.frame.height), collectionViewLayout: layout)
         self.calendarView!.backgroundColor = UIColor.clearColor()
         self.calendarView!.showsHorizontalScrollIndicator = false
         self.calendarView!.showsVerticalScrollIndicator = false
@@ -71,33 +65,42 @@ public class CalendarDatePickerViewController : UIViewController, UICollectionVi
         
         self.calendarView!.registerNib(UINib(nibName: "CalendarHeader", bundle: NSBundle(forClass: self.dynamicType )), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "Header")
         
+        cellDimension = self.calendarView!.frame.width / 7.0
+        
+        // Calendar layout
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        layout.headerReferenceSize = CGSizeMake(self.calendarView!.frame.width, cellDimension!*2)
+        self.calendarView?.setCollectionViewLayout(layout, animated: false)
+        
         // Date Picker
         self.datePicker.minimumDate = minDateTime
-        self.datePicker.setDate(minDateTime, animated: false)
+        self.datePicker.setDate(selectedDate!, animated: false)
         
         self.view.addSubview(calendarView!)
         self.view.addSubview(dateDisplay!)
     }
-
+    
     required public init?(coder aDecoder: NSCoder) {
-        let screen = UIScreen.mainScreen()
-        cellDimension = screen.bounds.width / 7.0
-        // Initialize view with TODAY selected
+        let seconds = ceil(NSDate.timeIntervalSinceReferenceDate()/300.0) * 300.0
+        selectedDate = NSDate.init(timeIntervalSinceReferenceDate: seconds)
         let components = NSCalendar.currentCalendar().components([.Calendar, .Era, .Year, .Month, .Day, .Hour], fromDate: NSDate())
         components.hour += 1
         self.minDateTime = NSCalendar.currentCalendar().dateFromComponents(components)!
-        self.selectedDate = minDateTime
         super.init(coder: aDecoder)
     }
     
     override public func viewWillAppear(animated: Bool) {
-        let prefixDays = ( calendarStartDate.weekday() - NSCalendar.currentCalendar().firstWeekday)
-        self.selectedIndex = NSIndexPath.init(forItem: prefixDays + minDateTime.day() - 1, inSection: 0)
+        let day = selectedDate!.day()
+        let difYears = selectedDate!.year() - calendarStartDate.year()
+        let months = difYears * 12 + selectedDate!.month() - calendarStartDate.month()
+        let prefixDays = ( selectedDate!.firstDayOfMonth().weekday() - NSCalendar.currentCalendar().firstWeekday)
+        self.selectedIndex = NSIndexPath.init(forItem: prefixDays + day - 1, inSection: months)
         self.calendarView!.selectItemAtIndexPath(selectedIndex, animated: false, scrollPosition: UICollectionViewScrollPosition.None)
     }
     
     /** CollectionViewDataSource protocols. */
-     
+    
     // Number of sections == number of months
     public func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -126,7 +129,7 @@ public class CalendarDatePickerViewController : UIViewController, UICollectionVi
         let firstDayOfThisMonth = calendarStartDate.dateByAddingMonths(indexPath.section)
         let prefixDays = ( firstDayOfThisMonth.weekday() - NSCalendar.currentCalendar().firstWeekday)
         cell.dayLabel.textColor = UIColor.blackColor()
-        cell.selectedBackgroundView!.layer.cornerRadius = cellDimension/2.0
+        cell.selectedBackgroundView!.layer.cornerRadius = cellDimension!/2.0
         
         if indexPath.row >= prefixDays {
             cell.isCellSelectable = true
@@ -151,11 +154,11 @@ public class CalendarDatePickerViewController : UIViewController, UICollectionVi
                 cell.dayLabel.textColor = self.view.tintColor
             }
             // Set the selected date background view
-            if cell.currentDate.isDateSameDay(selectedDate) {
+            if cell.currentDate.isDateSameDay(selectedDate!) {
                 cell.selectedForLabelColor()
             }
         }
-        // Hide prefix
+            // Hide prefix
         else {
             cell.isCellSelectable = false
             cell.dayLabel.textColor = UIColor.clearColor()
@@ -166,10 +169,10 @@ public class CalendarDatePickerViewController : UIViewController, UICollectionVi
     }
     
     public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
-        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(cellDimension, cellDimension)
+                               sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSizeMake(cellDimension!, cellDimension!)
     }
-
+    
     public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(0, 0, 0, 0)
     }
@@ -194,18 +197,18 @@ public class CalendarDatePickerViewController : UIViewController, UICollectionVi
     /** Responding to gestures */
     public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! CalendarCell
-        if cell.currentDate.isDateSameDay(selectedDate) { return }
+        if cell.currentDate.isDateSameDay(selectedDate!) { return }
         cell.selectedForLabelColor()
         self.selectedIndex = indexPath
-        let monthDifference = cell.currentDate.month() - selectedDate.month()
-        let dayDifference = cell.currentDate.day() - selectedDate.day()
-        selectedDate = selectedDate.dateByAddingMonths(monthDifference)
-        selectedDate = selectedDate.dateByAddingDays(dayDifference)
-        if selectedDate.earlierDate(minDateTime).isEqualToDate(selectedDate) {
+        let monthDifference = cell.currentDate.month() - selectedDate!.month()
+        let dayDifference = cell.currentDate.day() - selectedDate!.day()
+        selectedDate = selectedDate!.dateByAddingMonths(monthDifference)
+        selectedDate = selectedDate!.dateByAddingDays(dayDifference)
+        if selectedDate!.earlierDate(minDateTime).isEqualToDate(selectedDate!) {
             selectedDate = minDateTime
         }
-        self.datePicker!.date = selectedDate
-        self.dateDisplay?.text = selectedDate.timeNameFull()
+        self.datePicker!.date = selectedDate!
+        self.dateDisplay?.text = selectedDate!.timeNameFull()
     }
     
     public func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
@@ -222,7 +225,17 @@ public class CalendarDatePickerViewController : UIViewController, UICollectionVi
         else {
             self.selectedDate = self.datePicker.date
         }
-        self.dateDisplay!.text = selectedDate.timeNameFull()
+        self.dateDisplay!.text = selectedDate!.timeNameFull()
+    }
+    
+    /** Unwind */
+    @IBAction func onTouchCancelButton() {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func onTouchSaveButton() {
+        self.calendarDelegate?.calendarPicker!(self, didSelectDate: selectedDate!)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
 }
